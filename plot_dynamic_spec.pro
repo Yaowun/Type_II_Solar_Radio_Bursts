@@ -14,10 +14,10 @@ r = 255
 g = 255
 b = 255
 tvlct, r, g, b, 255
-device, decomposed = 0
+device, decomposed=0
 
 ; plot
-for i = 0, n_elements(time_range_event[0, *])-1 do begin
+for i=0, n_elements(time_range_event[0, *])-1 do begin
   idx_plot = where(time ge time_range_plot[0, i] and time le time_range_plot[1, i])
   t = time[idx_plot]
   y1 = rad1[idx_plot, *]

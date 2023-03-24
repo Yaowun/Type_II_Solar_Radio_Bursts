@@ -60,7 +60,7 @@ rr481=1. & rr482=1. & rr483=1. & rr484=1. & rr485=1. & rr486=1. & rr487=1. & rr4
 rr491=1. & rr492=1. & rr493=1. & rr494=1. & rr495=1. & rr496=1. & rr497=1. & rr498=1. & rr499=1. & rr500=1.
 rr501=1. & rr502=1. & rr503=1. & rr504=1. & rr505=1. & rr506=1. & rr507=1. & rr508=1. & rr509=1. & rr510=1.
 rr511=1. & rr512=1.
-for i = 1, 3 do readf, 1, dum
+for i=1, 3 do readf, 1, dum
 while ~eof(1) do begin
   readf, 1, dd, mm, yy, h, m, s, $
     rr1 ,rr2 ,rr3 ,rr4 ,rr5 ,rr6 ,rr7 ,rr8 ,rr9 ,rr10,$
@@ -118,7 +118,7 @@ while ~eof(1) do begin
     format = '(2(I2,1x),I4,1x,2(I2,1x),G5.3,15x,512G23.5)'
   year[nn] = yy & month[nn] = mm & day[nn] = dd
   hour[nn] = h & minute[nn] = m & second[nn] = s
-  for j = 1, 512 do begin
+  for j=1, 512 do begin
     RAD[nn, j-1] = (scope_varfetch('rr'+strtrim(string(j), 1), level=1))
     if RAD[nn, j-1] eq 0 then RAD[nn, j-1] = !values.f_nan
   endfor

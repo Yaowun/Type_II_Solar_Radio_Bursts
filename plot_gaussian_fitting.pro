@@ -14,7 +14,7 @@ r = 255
 g = 255
 b = 255
 tvlct, r, g, b, 255
-device, decomposed = 0
+device, decomposed=0
 
 SRB_event_ID = 0
 tn = 5
@@ -41,16 +41,16 @@ wdelete, 0
 Window, 1, xsize=480, ysize=480
 plot, freq1, RAD1[tp, *], xrange=[freq1[0], freq1[-1]], yrange=[0, 5], xstyle=1, ystyle=1,$
   linestyle=1, thick=2, charsize=1.2, title='Wind/Waves Gaussian Fitting',$
-  xtitle = 'RAD1 Freq. (Hz)', ytitle='Power log!L10!N (V!E2!N/kHz)'
-oplot, freq1, gaussfit(freq1, RAD1[idx_event[tn], *]), linestyle=0, thick=2
+  xtitle='RAD1 Freq. (Hz)', ytitle='Power log!L10!N (V!E2!N/kHz)'
+oplot, freq1, gaussfit(freq1,RAD1[idx_event[tn], *]), linestyle=0, thick=2
 caldat, time[tp], m, d, y, h, n, s
 ay = string(y, '(I4.2)')
 am = string(m, '(I2.2)')
 ad = string(d, '(I2.2)')
 ah = string(h, '(I2.2)')
 an = string(n, '(I2.2)')
-xyouts, .2, .88, ay+'/'+am+'/'+ad+' '+ah+':'+an,charsize=1.2, /normal
-plots,[.2, .25],[.83, .83], linestyle=1, thick=2, /normal
+xyouts, .2, .88, ay+'/'+am+'/'+ad+' '+ah+':'+an, charsize=1.2, /normal
+plots, [.2, .25], [.83, .83], linestyle=1, thick=2, /normal
 xyouts, .28, .82, 'Wind/Waves Data', /normal
 plots, [.2, .25], [.77, .77], linestyle=0, thick=2, /normal
 xyouts,.28, .76, 'Gaussian fitting', /normal
