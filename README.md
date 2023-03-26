@@ -54,10 +54,9 @@ scaled2 = bytscl(log_y2,min=RADmin,max=RADmax,top=254)
 #### 範例
 ![dynamic spectrum](./fig/dynamic_spectrum.png)  
 2019 年 4 月 2 日 15:45.30 - 16:09.30 UT 的第二型太陽無線電暴事件之動態頻譜圖。  
-從上圖可看出第二型無線電暴主要的訊號是在 RAD1 的頻率範圍內，而在 RAD2 頻率範圍內則幾乎沒有反應，因此我們僅針對 RAD1 進行頻漂的分析。在頻譜圖中先標記事件的起始與結束時間，得到事件發生的時間範圍，在時間範圍內對每個時間點使用高斯函數擬合功率曲線，取其局部極大值即可得到此時間點的頻漂中心。  
-![gaussian fitting of power spectrum](./fig/gaussian_fitting.png)  
-2019 年 4 月 2 日 15:50.20 UT 之  功率曲線高斯擬合圖。
+從上圖可看出第二型無線電暴主要的訊號是在 RAD1 的頻率範圍內，而在 RAD2 頻率範圍內則幾乎沒有反應，因此我們僅針對 RAD1 進行頻漂的分析。在頻譜圖中先標記事件的起始與結束時間，得到事件發生的時間範圍，在時間範圍內對每個時間點使用高斯函數擬合功率曲線，取其局部極大值即可得到此時間點的頻漂中心。使用 [plot_gaussian_fitting.pro](./plot_gaussian_fitting.pro) 繪製 2019 年 4 月 2 日 15:50.20 UT 之功率曲線高斯擬合圖  
+![gaussian fitting of power spectrum](./fig/gaussian_fitting.png)
 
 ### 成果
-根據上述方法，我分析了在 2019 年 4 月中另外 9 個第二型太陽無線電暴事件，因此加上範例我們總共分析 10 個第二型太陽無線電暴事件。由於每個事件發生時間點不同，我將事件起始時間訂為零點，並將 10 條頻漂曲線分別在每個事件經過時間點做平均，繪製出平均頻漂曲線，接著根據頻漂曲線的特性，使用指數函數對平均頻漂曲線做擬合，最後得到擬合函數為 $𝑓(𝑡) = 682.92𝑒^{−0.1579𝑡} + 187.12\ [𝑘𝐻𝑧/𝑚𝑖𝑛]$。  
+除了上述範例，我在 2019 年 4 月還發現其他 9 個第二型太陽無線電暴事件，並基於上述方法進行分析。我使用 [plot_dynamic_spec.pro](./plot_dynamic_spec.pro) 批次繪製不同事件的動態頻譜圖，將動態頻譜圖中觀察到的事件起始與結束時間存入 [save_SRB_event.pro](./save_SRB_event.pro)，並將每個事件起始時間訂為零點，把事件經過時間對應的頻漂中心資料存入 [save_freq_drift_fitting.pro](./save_freq_drift_fitting.pro)。在頻漂分析中，我將 10 條頻漂曲線分別在每個事件經過時間點做平均，繪製出平均頻漂曲線，接著根據頻漂曲線的特性，使用指數函數對平均頻漂曲線做擬合，最後得到擬合函數為 $𝑓(𝑡) = 682.92𝑒^{−0.1579𝑡} + 187.12\ [𝑘𝐻𝑧/𝑚𝑖𝑛]$。  
 ![frequency drift of type II solar radio burst](./fig/freq_drift/freq_drift.png)
