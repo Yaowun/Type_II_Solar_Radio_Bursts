@@ -59,6 +59,7 @@ scaled2 = bytscl(log_y2,min=RADmin,max=RADmax,top=254)
 
 ### 成果
 除了上述範例，我在 2019 年 4 月還發現其他 9 個第二型太陽無線電暴事件，並基於上述方法進行分析。我使用 [plot_dynamic_spec.pro](./plot_dynamic_spec.pro) 批次繪製不同事件的動態頻譜圖，將動態頻譜圖中觀察到的事件起始與結束時間存入 [save_SRB_event.pro](./save_SRB_event.pro)，並將每個事件起始時間訂為零點，把事件經過時間對應的頻漂中心資料存入 [save_freq_drift_fitting.pro](./save_freq_drift_fitting.pro)。在頻漂分析中，我將 10 條頻漂曲線分別在每個事件經過時間點做平均，繪製出平均頻漂曲線，接著根據頻漂曲線的特性，使用指數函數對平均頻漂曲線做擬合，最後得到擬合函數為 $𝑓(𝑡) = 682.92𝑒^{−0.1579𝑡} + 187.12\ [𝑘𝐻𝑧/𝑚𝑖𝑛]$。  
+
 ![frequency drift of type II solar radio burst](./fig/freq_drift/freq_drift.png)
 
 ### 討論
